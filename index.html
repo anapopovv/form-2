@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="PT-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+    <link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <main>
+        <div class="form-container" id="form-container">
+            <form id="multi-step-form">
+                <div id="step1">
+                    <div class="info-step-1">
+                        <p class="p-1">Detalhes pessoais</p>
+                        <p class="p-2">Contato</p>
+                        <p class="p-3">Confimação</p>
+                    </div>
+
+                    <div class="input-box">
+                        <img src="/pessoa.png" alt="Icone de usuario">    
+                        <input type="text" id="nome" placeholder="Digite seu nome aqui" required>
+                    </div>
+
+                    <div class="input-box">
+                        <img src="/comunicacao.png" alt="Icone que indica o campo do email">
+                        <input type="email" id="email" placeholder="Digite seu email aqui" required>
+                    </div>
+                    <button type="button" class="next" onclick="nextStep()">Próximo</button>
+                </div>
+
+                <div id="step2" style="display: none;">
+                    <div class="info-step-2">
+                        <p class="p-1">Detalhes pessoais</p>
+                        <p class="p-2">Contato</p>
+                        <p class="p-3">Confimação</p>
+                    </div>
+
+                    <div class="input-box">
+                        <img src="/telefone.png" alt="Icone que indica o campo do telefone">
+                        <input type="tel" id="telefone" placeholder="Digite seu telefone aqui" required>
+                    </div>
+
+                    <div class="input-box">
+                        <img src="/localizacao.png" alt="Icone que indica o campo de localização">
+                        <input type="text" id="endereco" placeholder="Digite seu endereço aqui" required>
+                    </div>
+                    
+                    <button type="button" class="back" onclick="prevStep()">Voltar</button>
+                    <button type="button" class="next" onclick="nextStep()">Próximo</button>
+                </div>
+
+                <div id="step3" style="display: none;">
+                    <div class="info-step-3">
+                        <p class="p-1">Detalhes pessoais</p>
+                        <p class="p-2">Contato</p>
+                        <p class="p-3">Confimação</p>
+                    </div>
+
+                    <div id="confirmation"></div>
+
+                    <div id="captchaModal" class="modal" style="display: none;">
+                        <div class="modal-content">
+                            <span class="close" onclick="closeModal()">&times;</span>
+                            <p id="captchaWord"></p>
+                            <input type="text" id="captchaInput" placeholder="Digite a palavra acima" required>
+                            <button onclick="checkCaptcha()">Verificar</button>
+                        </div>
+                    </div>
+
+                    <button type="button" class="back" onclick="prevStep()">Voltar</button>
+                    <button id="submitBtn" type="button" class="next" onclick="showCaptcha()">Enviar</button>
+                </div>
+            </form>
+          </div>
+
+          <div id="success-message" style="display: none;">
+            <h1>Informações enviadas com sucesso.</h1>
+          </div>
+    </main>
+
+    <script src="/index.js"></script>
+</body>
+</html>
